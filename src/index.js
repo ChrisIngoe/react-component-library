@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default class TestComponent extends Component {
-  render() {
-    return <div>This is a test component</div>;
-  }
-}
+const TestComponent = ({ status }) => {
+  const [userStatus, setUserStatus] = useState('testing');
+
+  useEffect(() => {
+    setUserStatus(status);
+  }, [status]);
+
+  return <div>This is a component with status {userStatus}</div>;
+};
+
+export default TestComponent;
